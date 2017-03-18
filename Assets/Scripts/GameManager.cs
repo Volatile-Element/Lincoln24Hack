@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-	// Use this for initialization
-	void Start ()
+    public Player PlayerOne;
+
+    private void Awake()
+    {
+        PlayerOne = FindObjectOfType<Player>();
+    }
+
+    // Use this for initialization
+    void Start ()
     {
         //We'll do some stuff here.
 
