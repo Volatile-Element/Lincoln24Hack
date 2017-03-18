@@ -1,26 +1,50 @@
 {
+  "Lids": [
+    {
+      "Name": "Lid (Oak)",
+      "Resource": "l-oak"
+    }
+  ],
+  "Bases": [
+    {
+      "Name": "Base (Oak)",
+      "Resource": "base-oak"
+    }
+  ],
   "Tops": [
     {
-      "Name": "Baslic Top",
-      "Image": "basic-lid"
+      "Name": "Top (Oak)",
+      "Resource": "t-oak"
     }
-    ],
+  ],
   "Bottoms": [
     {
-      "Name": "Baslic Bottom",
-      "Image": "basic-lid"
+      "Name": "Bottom (Oak)",
+      "Resource": "b-oak"
     }
   ],
   "LeftSides": [
     {
-      "Name": "Baslic Left Side",
-      "Image": "basic-lid"
+      "Name": "Left Side (Oak)",
+      "Resource": "ls-oak"
     }
   ],
   "RightSides": [
     {
-      "Name": "Baslic Right Side",
-      "Image": "basic-lid"
+      "Name": "Right Side (Oak)",
+      "Resource": "rs-oak"
+    }
+  ],
+  "HandlesLeft": [
+    {
+      "Name": "Handle Left (Oak)",
+      "Resource": "hl-oak"
+    }
+  ],
+  "HandlesRight": [
+    {
+      "Name": "Handle Right (Oak)",
+      "Resource": "hr-oak"
     }
   ]
 }

@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public string CarryingPartName;
+    public CoffinObject CarryingPartObject;
     public bool CarryingPart;
 
     public InteractableMono InteractableItemInFocus;
 
     private float _InteractionDistance = 2;
 
-	// Use this for initialization
-	void Start () {
+    public StringUnityEvent OnCarryingChange = new StringUnityEvent();
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -52,15 +54,19 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void StartCarryingItem(string name)
+    public void StartCarryingItem(CoffinObject part)
     {
-        CarryingPartName = name;
+        CarryingPartObject = part;
         CarryingPart = true;
+
+        OnCarryingChange.Invoke(name);
     }
 
     public void StopCarryingItem()
     {
-        CarryingPartName = "";
+        CarryingPartObject = null;
         CarryingPart = false;
+
+        OnCarryingChange.Invoke("");
     }
 }

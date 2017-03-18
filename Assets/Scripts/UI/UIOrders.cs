@@ -28,10 +28,14 @@ public class UIOrders : MonoBehaviour
         {
             counter++;
             output += "Order #" + counter;
+            output += Environment.NewLine + "Lid: " + order.LidName;
+            output += Environment.NewLine + "Base: " + order.BaseName;
             output += Environment.NewLine + "Top: " + order.TopName;
             output += Environment.NewLine + "Bottom: " + order.BottomName;
-            output += Environment.NewLine + "Left: " + order.LeftSideName;
-            output += Environment.NewLine + "Right: " + order.RightSideName;
+            output += Environment.NewLine + "Left Side: " + order.LeftSideName;
+            output += Environment.NewLine + "Right Side: " + order.RightSideName;
+            output += Environment.NewLine + "Left Handle: " + order.HandleLeft;
+            output += Environment.NewLine + "Right Handle: " + order.HandleRight;
         }
 
         txtOrders.text = output;

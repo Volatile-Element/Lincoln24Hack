@@ -29,18 +29,27 @@ public class OrderManager : Singleton<OrderManager>
     public void MakeOrder()
     {
         var CoffinParts = CoffinManager.Instance.CoffinParts;
-        var top = CoffinParts.Tops.Skip(Random.Range(0, CoffinParts.Tops.Count())).FirstOrDefault();
-        var bottom = CoffinParts.Bottoms.Skip(Random.Range(0, CoffinParts.Bottoms.Count())).FirstOrDefault();
-        var left = CoffinParts.LeftSides.Skip(Random.Range(0, CoffinParts.LeftSides.Count())).FirstOrDefault();
-        var right = CoffinParts.RightSides.Skip(Random.Range(0, CoffinParts.RightSides.Count())).FirstOrDefault();
+        var lids = GetRandomCoffinPart(CoffinParts.Lids);
+        var bases = GetRandomCoffinPart(CoffinParts.Bases);
+        var tops = GetRandomCoffinPart(CoffinParts.Tops);
+        var bottoms = GetRandomCoffinPart(CoffinParts.Bottoms);
+        var leftSides = GetRandomCoffinPart(CoffinParts.LeftSides);
+        var rightSides = GetRandomCoffinPart(CoffinParts.RightSides);
+        var leftHandles = GetRandomCoffinPart(CoffinParts.HandlesLeft);
+        var rightHandles = GetRandomCoffinPart(CoffinParts.HandlesRight);
 
-        AddOrder(new CoffinOrder(top, bottom, left, right));
+        AddOrder(new CoffinOrder(lids, bases, tops, bottoms, leftSides, rightSides, leftHandles, rightHandles));
     }
 
     public void AddOrder(CoffinOrder coffinOrder)
     {
         Orders.Add(coffinOrder);
         OrderAdded.Invoke();
+    }
+
+    private CoffinObject GetRandomCoffinPart(IEnumerable<CoffinObject> objects)
+    {
+        return objects.Skip(Random.Range(0, objects.Count())).FirstOrDefault();
     }
 
     IEnumerator MakeOrders()

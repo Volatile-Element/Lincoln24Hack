@@ -7,5 +7,5 @@ using UnityEngine;
 public class CoffinObject
 {
     public string Name;
-    public string Image;
+    public string Resource;
 }

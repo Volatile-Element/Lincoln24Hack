@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class CoffinBenchWorldObject : InteractableMono
 {
-    public string Top;
-    public string Bottom;
-    public string LeftSide;
-    public string RightSide;
+    public CoffinBuildTemplate BuildingCoffin;
+
+    private void Awake()
+    {
+        BuildingCoffin = FindObjectOfType<CoffinBuildTemplate>();
+    }
 
     // Use this for initialization
     void Start()
@@ -24,13 +26,13 @@ public class CoffinBenchWorldObject : InteractableMono
 
     public override void Interact()
     {
-        //TODO: Add to coffin.
+        var instanCoffinPart = CoffinManager.Instance.InstantiateCoffinPart(GameManager.Instance.PlayerOne.CarryingPartObject.Resource, BuildingCoffin.transform.position, Quaternion.identity, BuildingCoffin.transform);
         GameManager.Instance.PlayerOne.StopCarryingItem();
     }
 
     public override string GetText()
     {
-        return "Add " + GameManager.Instance.PlayerOne.CarryingPartName + " to coffin.";
+        return "Add " + GameManager.Instance.PlayerOne.CarryingPartObject.Name + " to coffin.";
     }
 
     public override bool IsCurrentlyInteractable()

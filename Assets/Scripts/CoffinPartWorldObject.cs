@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class CoffinPartWorldObject : InteractableMono
 {
-    public string Name;
-    public string PartType;
+    public CoffinObject CoffinObject;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -20,12 +19,12 @@ public class CoffinPartWorldObject : InteractableMono
 
     public override void Interact()
     {
-        GameManager.Instance.PlayerOne.StartCarryingItem(Name);
+        GameManager.Instance.PlayerOne.StartCarryingItem(CoffinObject);
     }
 
     public override string GetText()
     {
-        return "Press E to pickup: " + name;
+        return "Press E to pickup: " + CoffinObject.Name;
     }
 
     public override bool IsCurrentlyInteractable()

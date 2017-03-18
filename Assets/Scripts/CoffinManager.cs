@@ -19,4 +19,13 @@ public class CoffinManager : Singleton<CoffinManager>
         var json = Resources.Load<TextAsset>("coffins").text;
         CoffinParts = JsonUtility.FromJson<CoffinPartList>(json);
     }
+
+    public GameObject InstantiateCoffinPart(string resourceID, Vector3 location, Quaternion rotation, Transform parent)
+    {
+        var coffinPart = Resources.Load<GameObject>("Coffin Parts/" + resourceID);
+
+        var instanCoffinPart = Instantiate(coffinPart, location, rotation, parent);
+
+        return instanCoffinPart;
+    }
 }
