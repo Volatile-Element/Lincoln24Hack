@@ -1,0 +1,26 @@
+{
+  "Tops": [
+    {
+      "Name": "Baslic Top",
+      "Image": "basic-lid"
+    }
+    ],
+  "Bottoms": [
+    {
+      "Name": "Baslic Bottom",
+      "Image": "basic-lid"
+    }
+  ],
+  "LeftSides": [
+    {
+      "Name": "Baslic Left Side",
+      "Image": "basic-lid"
+    }
+  ],
+  "RightSides": [
+    {
+      "Name": "Baslic Right Side",
+      "Image": "basic-lid"
+    }
+  ]
+}
