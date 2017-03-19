@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -18,10 +19,12 @@ public class CurrentCoffinOrder
 
     public UnityEvent OnOrderComplete = new UnityEvent();
 
-    private int _AddedParts; //TODO: Make it so this won't increment on replacements.
+    private List<CoffinParts> AddedParts = new List<CoffinParts>(); // In case we need to track adds for some reason. Also 05:27.
 
     public void AddPlacedItem(CoffinObject placedItem)
     {
+        AddedParts.Add(placedItem.PartType);
+
         switch (placedItem.PartType)
         {
             case CoffinParts.Lid:
@@ -51,10 +54,8 @@ public class CurrentCoffinOrder
             default:
                 break;
         }
-
-        _AddedParts++;
-
-        if (_AddedParts >= 8)
+        
+        if (AddedParts.Distinct().Count() >= 8)
         {
             OnOrderComplete.Invoke();
         }

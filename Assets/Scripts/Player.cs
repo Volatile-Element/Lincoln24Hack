@@ -8,11 +8,21 @@ public class Player : MonoBehaviour
     public bool CarryingPart;
     public bool Paused = false;
 
+    public GameObject GrabHand;
+    public GameObject CarryingHands;
+
     public InteractableMono InteractableItemInFocus;
 
     private float _InteractionDistance = 2;
 
     public StringUnityEvent OnCarryingChange = new StringUnityEvent();
+
+    private void Awake()
+    {
+        GrabHand = gameObject.GetComponentInChildren<GrabHand>().gameObject;
+        CarryingHands = transform.GetComponentInChildren<CarryingHands>().gameObject;
+        CarryingHands.SetActive(false);
+    }
 
     // Use this for initialization
     void Start () {
@@ -79,13 +89,19 @@ public class Player : MonoBehaviour
         CarryingPartObject = part;
         CarryingPart = true;
 
-        OnCarryingChange.Invoke(name);
+        CarryingHands.SetActive(true);
+        GrabHand.SetActive(false);
+
+        OnCarryingChange.Invoke(part.Name);
     }
 
     public void StopCarryingItem()
     {
         CarryingPartObject = null;
         CarryingPart = false;
+
+        CarryingHands.SetActive(false);
+        GrabHand.SetActive(true);
 
         OnCarryingChange.Invoke("");
     }
