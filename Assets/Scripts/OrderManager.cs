@@ -6,11 +6,14 @@ using UnityEngine.Events;
 
 public class OrderManager : Singleton<OrderManager>
 {
+    public CurrentCoffinOrder CurrentOrder;
+
     public List<CoffinOrder> Orders = new List<CoffinOrder>();
 
     public bool MakingOrders;
 
     public UnityEvent OrderAdded;
+    public UnityEvent OnNewCurrentOrderAdded;
 
     public void StartMakingOrders()
     {
@@ -45,6 +48,41 @@ public class OrderManager : Singleton<OrderManager>
     {
         Orders.Add(coffinOrder);
         OrderAdded.Invoke();
+
+        if (CurrentOrder == null)
+        {
+            SetNewCurrentOrder();
+        }
+    }
+
+    public void CompleteCurrentOrder()
+    {
+        if (CurrentOrder.PlacedLid.Name != CurrentOrder.Order.LidName.Name)
+        {
+            Debug.Log("Order was incorrect");
+        }
+        else
+        {
+            Debug.Log("Order was correct");
+        }
+
+        SetNewCurrentOrder();
+    }
+
+    public void SetNewCurrentOrder()
+    {
+        CurrentOrder = null;
+
+        if (Orders.Count > 0)
+        {
+            CurrentOrder = new CurrentCoffinOrder()
+            {
+                Order = Orders[0]
+            };
+            CurrentOrder.OnOrderComplete.AddListener(CompleteCurrentOrder);
+        }
+
+        OnNewCurrentOrderAdded.Invoke();
     }
 
     private CoffinObject GetRandomCoffinPart(IEnumerable<CoffinObject> objects)

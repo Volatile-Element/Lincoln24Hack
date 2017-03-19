@@ -8,36 +8,45 @@ public class UIOrders : MonoBehaviour
 {
     Canvas ParentCanvas;
     Text txtOrders;
+    Text txtOrderText;
 
     void Awake()
     {
         //Set values
         ParentCanvas = gameObject.GetComponent<Canvas>();
         txtOrders = ParentCanvas.transform.FindChild("txtOrders").GetComponent<Text>();
+        txtOrderText = ParentCanvas.transform.FindChild("txtOrderText").GetComponent<Text>();
 
         //Subscribe to events.
-        OrderManager.Instance.OrderAdded.AddListener(UpdateUI);
+        OrderManager.Instance.OrderAdded.AddListener(UpdateOrders);
+        OrderManager.Instance.OnNewCurrentOrderAdded.AddListener(UpdateCurrentOrder);
     }
 
-	public void UpdateUI()
+    public void UpdateOrders()
     {
-        var output = "";
+        txtOrders.text = "Other Orders: " + OrderManager.Instance.Orders.Count;
+    }
 
-        int counter = 0;
-        foreach (var order in OrderManager.Instance.Orders)
+	public void UpdateCurrentOrder()
+    {
+        if (OrderManager.Instance.CurrentOrder == null)
         {
-            counter++;
-            output += "Order #" + counter;
-            output += Environment.NewLine + "Lid: " + order.LidName;
-            output += Environment.NewLine + "Base: " + order.BaseName;
-            output += Environment.NewLine + "Top: " + order.TopName;
-            output += Environment.NewLine + "Bottom: " + order.BottomName;
-            output += Environment.NewLine + "Left Side: " + order.LeftSideName;
-            output += Environment.NewLine + "Right Side: " + order.RightSideName;
-            output += Environment.NewLine + "Left Handle: " + order.HandleLeft;
-            output += Environment.NewLine + "Right Handle: " + order.HandleRight;
+            txtOrderText.text = "No Current Order";
+            return;
         }
 
-        txtOrders.text = output;
+        var order = OrderManager.Instance.CurrentOrder.Order;
+
+        var output = "";
+        output += Environment.NewLine + "Lid: " + order.LidName.Name;
+        output += Environment.NewLine + "Base: " + order.BaseName.Name;
+        output += Environment.NewLine + "Top: " + order.TopName.Name;
+        output += Environment.NewLine + "Bottom: " + order.BottomName.Name;
+        output += Environment.NewLine + "Left Side: " + order.LeftSideName.Name;
+        output += Environment.NewLine + "Right Side: " + order.RightSideName.Name;
+        output += Environment.NewLine + "Left Handle: " + order.HandleLeft.Name;
+        output += Environment.NewLine + "Right Handle: " + order.HandleRight.Name;
+
+        txtOrderText.text = output;
     }
 }

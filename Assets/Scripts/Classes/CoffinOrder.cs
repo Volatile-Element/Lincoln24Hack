@@ -6,14 +6,14 @@ using UnityEngine;
 [Serializable]
 public class CoffinOrder
 {
-    public string LidName;
-    public string BaseName;
-    public string TopName;
-    public string BottomName;
-    public string LeftSideName;
-    public string RightSideName;
-    public string HandleLeft;
-    public string HandleRight;
+    public CoffinObject LidName;
+    public CoffinObject BaseName;
+    public CoffinObject TopName;
+    public CoffinObject BottomName;
+    public CoffinObject LeftSideName;
+    public CoffinObject RightSideName;
+    public CoffinObject HandleLeft;
+    public CoffinObject HandleRight;
 
     public CoffinOrder()
     {
@@ -22,13 +22,13 @@ public class CoffinOrder
 
     public CoffinOrder(CoffinObject lid, CoffinObject basepart, CoffinObject top, CoffinObject bottom, CoffinObject left, CoffinObject right, CoffinObject handleLeft, CoffinObject handleRight)
     {
-        LidName = lid.Name;
-        BaseName = basepart.Name;
-        TopName = top.Name;
-        BottomName = bottom.Name;
-        LeftSideName = left.Name;
-        RightSideName = right.Name;
-        HandleLeft = handleLeft.Name;
-        HandleRight = handleRight.Name;
+        LidName = lid;
+        BaseName = basepart;
+        TopName = top;
+        BottomName = bottom;
+        LeftSideName = left;
+        RightSideName = right;
+        HandleLeft = handleLeft;
+        HandleRight = handleRight;
     }
 }

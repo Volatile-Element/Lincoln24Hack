@@ -26,7 +26,10 @@ public class CoffinBenchWorldObject : InteractableMono
 
     public override void Interact()
     {
-        var instanCoffinPart = CoffinManager.Instance.InstantiateCoffinPart(GameManager.Instance.PlayerOne.CarryingPartObject.Resource, BuildingCoffin.transform.position, Quaternion.identity, BuildingCoffin.transform);
+        var carriedItem = GameManager.Instance.PlayerOne.CarryingPartObject;
+
+        var instanCoffinPart = CoffinManager.Instance.InstantiateCoffinPart(carriedItem.Resource, BuildingCoffin.transform.position, Quaternion.identity, BuildingCoffin.transform);
+        OrderManager.Instance.CurrentOrder.AddPlacedItem(carriedItem);
         GameManager.Instance.PlayerOne.StopCarryingItem();
     }
 

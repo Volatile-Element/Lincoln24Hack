@@ -2,49 +2,145 @@
   "Lids": [
     {
       "Name": "Lid (Oak)",
-      "Resource": "l-oak"
+      "Resource": "oak/l-oak"
+    },
+    {
+      "Name": "Lid (Ceramic)",
+      "Resource": "ceramic/l-ceramic"
+    },
+    {
+      "Name": "Lid (Birch)",
+      "Resource": "birch/l-birch"
+    },
+    {
+      "Name": "Lid (Black)",
+      "Resource": "black/l-black"
     }
   ],
   "Bases": [
     {
       "Name": "Base (Oak)",
-      "Resource": "base-oak"
+      "Resource": "oak/base-oak"
+    },
+    {
+      "Name": "Base (Ceramic)",
+      "Resource": "ceramic/base-ceramic"
+    },
+    {
+      "Name": "Base (Birch)",
+      "Resource": "birch/base-birch"
+    },
+    {
+      "Name": "Base (Black)",
+      "Resource": "black/base-black"
     }
   ],
   "Tops": [
     {
       "Name": "Top (Oak)",
-      "Resource": "t-oak"
+      "Resource": "oak/t-oak"
+    },
+    {
+      "Name": "Top (Ceramic)",
+      "Resource": "ceramic/t-ceramic"
+    },
+    {
+      "Name": "Top (Birch)",
+      "Resource": "birch/t-birch"
+    },
+    {
+      "Name": "Top (Black)",
+      "Resource": "black/t-black"
     }
   ],
   "Bottoms": [
     {
       "Name": "Bottom (Oak)",
-      "Resource": "b-oak"
+      "Resource": "oak/b-oak"
+    },
+    {
+      "Name": "Bottom (Ceramic)",
+      "Resource": "ceramic/b-ceramic"
+    },
+    {
+      "Name": "Bottom (Birch)",
+      "Resource": "birch/b-birch"
+    },
+    {
+      "Name": "Bottom (Black)",
+      "Resource": "black/b-black"
     }
   ],
   "LeftSides": [
     {
       "Name": "Left Side (Oak)",
-      "Resource": "ls-oak"
+      "Resource": "oak/ls-oak"
+    },
+    {
+      "Name": "Left Side (Ceramic)",
+      "Resource": "ceramic/ls-ceramic"
+    },
+    {
+      "Name": "Left Side (Birch)",
+      "Resource": "birch/ls-birch"
+    },
+    {
+      "Name": "Left Side (Black)",
+      "Resource": "black/ls-black"
     }
   ],
   "RightSides": [
     {
       "Name": "Right Side (Oak)",
-      "Resource": "rs-oak"
+      "Resource": "oak/rs-oak"
+    },
+    {
+      "Name": "Right Side (Ceramic)",
+      "Resource": "ceramic/rs-ceramic"
+    },
+    {
+      "Name": "Right Side (Birch)",
+      "Resource": "birch/rs-birch"
+    },
+    {
+      "Name": "Right Side (Black)",
+      "Resource": "black/rs-black"
     }
   ],
   "HandlesLeft": [
     {
       "Name": "Handle Left (Oak)",
-      "Resource": "hl-oak"
+      "Resource": "oak/hl-oak"
+    },
+    {
+      "Name": "Handle Left (Ceramic)",
+      "Resource": "ceramic/hl-ceramic"
+    },
+    {
+      "Name": "Handle Left (Birch)",
+      "Resource": "birch/hl-birch"
+    },
+    {
+      "Name": "Handle Left (Black)",
+      "Resource": "black/hl-black"
     }
   ],
   "HandlesRight": [
     {
       "Name": "Handle Right (Oak)",
-      "Resource": "hr-oak"
+      "Resource": "oak/hr-oak"
+    },
+    {
+      "Name": "Handle Right (Ceramic)",
+      "Resource": "ceramic/hr-ceramic"
+    },
+    {
+      "Name": "Handle Right (Birch)",
+      "Resource": "birch/hr-birch"
+    },
+    {
+      "Name": "Handle Right (Black)",
+      "Resource": "black/hr-black"
     }
   ]
 }

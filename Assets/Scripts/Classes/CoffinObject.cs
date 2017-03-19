@@ -8,4 +8,5 @@ public class CoffinObject
 {
     public string Name;
     public string Resource;
+    public CoffinParts PartType;
 }
