@@ -21,6 +21,11 @@ public class DebugManager : MonoBehaviour
         {
             RoseBud();
         }
+
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.D))
+        {
+            NegativeRosebud();
+        }
     }
 
     public void BuildCurrentCoffin()
@@ -31,5 +36,10 @@ public class DebugManager : MonoBehaviour
     public void RoseBud()
     {
         CashManager.Instance.ChangeCash(1000);
+    }
+
+    public void NegativeRosebud()
+    {
+        CashManager.Instance.ChangeCash(-1000);
     }
 }

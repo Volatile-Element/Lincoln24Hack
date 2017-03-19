@@ -10,14 +10,15 @@ public class CoffinBenchWorldObject : InteractableMono
     private void Awake()
     {
         BuildingCoffin = FindObjectOfType<CoffinBuildTemplate>();
+        var parts = new GameObject("Parts");
+        parts.transform.parent = BuildingCoffin.transform;
+
+        GameManager.Instance.OnDayChange.AddListener(ResetTemplate);
     }
 
     // Use this for initialization
     void Start()
     {
-        var parts = new GameObject("Parts");
-        parts.transform.parent = BuildingCoffin.transform;
-
         OrderManager.Instance.OrderCompleted.AddListener(CompleteOrder);
     }
 
@@ -36,6 +37,7 @@ public class CoffinBenchWorldObject : InteractableMono
         var instanCoffinPart = CoffinManager.Instance.InstantiateCoffinPart(carriedItem.Resource, positionToSpawn, Quaternion.identity, BuildingCoffin.transform.FindChild("Parts"));
         OrderManager.Instance.CurrentOrder.AddPlacedItem(carriedItem);
         GameManager.Instance.PlayerOne.StopCarryingItem();
+        GetComponent<PieceBuiltSound>().PlayRandomSound();
     }
 
     public override string GetText()
@@ -52,10 +54,15 @@ public class CoffinBenchWorldObject : InteractableMono
     {
         var newCoffin = Instantiate(BuildingCoffin.gameObject, BuildingCoffin.gameObject.transform.position, BuildingCoffin.transform.rotation) as GameObject;
 
-        //TODO: Kill new coffin.
-        Destroy(newCoffin); //Eventually this will be time based.
+        newCoffin.AddComponent<DestroyIn>();
+        newCoffin.AddComponent<MoveInDirection>().Direction = new Vector3(0, 0, 1);
 
         //We destroy the placed parts and readd the child object.
+        ResetTemplate();
+    }
+
+    public void ResetTemplate()
+    {
         Destroy(BuildingCoffin.transform.FindChild("Parts").gameObject);
         var parts = new GameObject("Parts");
         parts.transform.parent = BuildingCoffin.transform;

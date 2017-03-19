@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class CashManager : Singleton<CashManager>
 {
@@ -54,7 +55,7 @@ public class CashManager : Singleton<CashManager>
 
         if (CurrentCash <= 0)
         {
-            //TODO: Game Over
+            SceneManager.LoadScene("Game Over");
         }
     }
 }

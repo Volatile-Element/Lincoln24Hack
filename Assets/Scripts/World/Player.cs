@@ -47,6 +47,11 @@ public class Player : MonoBehaviour
         {
             InteractableItemInFocus.Interact();
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StopCarryingItem();
+        }
     }
 
     public void ScanForInteraction()

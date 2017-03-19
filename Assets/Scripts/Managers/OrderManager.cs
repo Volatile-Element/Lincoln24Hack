@@ -18,6 +18,11 @@ public class OrderManager : Singleton<OrderManager>
     public IntUnityEvent OrderCompletedUnsuccessfully = new IntUnityEvent();
     public UnityEvent OnNewCurrentOrderAdded;
 
+    private void Awake()
+    {
+        GameManager.Instance.OnDayChange.AddListener(ClearOrders);
+    }
+
     public void StartMakingOrders()
     {
         MakingOrders = true;
@@ -116,6 +121,14 @@ public class OrderManager : Singleton<OrderManager>
         {
             return objects.Skip(pickedIndex).FirstOrDefault();
         }
+    }
+
+    public void ClearOrders()
+    {
+        CurrentOrder = null;
+        Orders.Clear();
+        OnNewCurrentOrderAdded.Invoke();
+        OrderAdded.Invoke();
     }
 
     IEnumerator MakeOrders()
