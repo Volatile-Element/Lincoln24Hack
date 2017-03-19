@@ -48,6 +48,7 @@ public class GameManager : Singleton<GameManager>
     public void IncrementDay()
     {
         CurrentDay++;
+        StopCoroutine(TickingClock());
         CurrentTime = new System.DateTime(2017, 3, 19, 9, 0, 0);
 
         DifficultyModifier = CurrentDay;

@@ -14,8 +14,8 @@ public class UIOrders : MonoBehaviour
     {
         //Set values
         ParentCanvas = gameObject.GetComponent<Canvas>();
-        txtOrders = ParentCanvas.transform.FindChild("txtOrders").GetComponent<Text>();
-        txtOrderText = ParentCanvas.transform.FindChild("txtOrderText").GetComponent<Text>();
+        txtOrders = ParentCanvas.transform.FindChild("Image/txtOrders").GetComponent<Text>();
+        txtOrderText = ParentCanvas.transform.FindChild("Image/txtOrderText").GetComponent<Text>();
 
         //Subscribe to events.
         OrderManager.Instance.OrderAdded.AddListener(UpdateOrders);
@@ -38,7 +38,7 @@ public class UIOrders : MonoBehaviour
         var order = OrderManager.Instance.CurrentOrder.Order;
 
         var output = "";
-        output += Environment.NewLine + "Lid: " + order.LidName.Name;
+        output += "Lid: " + order.LidName.Name;
         output += Environment.NewLine + "Base: " + order.BaseName.Name;
         output += Environment.NewLine + "Top: " + order.TopName.Name;
         output += Environment.NewLine + "Bottom: " + order.BottomName.Name;

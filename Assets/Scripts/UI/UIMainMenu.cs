@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class UIMainMenu : MonoBehaviour
 {
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    // Use this for initialization
+    void Start () {
 		
 	}
 	

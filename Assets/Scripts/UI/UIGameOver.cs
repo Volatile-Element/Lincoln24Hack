@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class UIGameOver : MonoBehaviour
 {
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
     public void Retry()
     {
         SceneManager.LoadScene("Game View");

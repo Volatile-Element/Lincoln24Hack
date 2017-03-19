@@ -43,7 +43,7 @@ public class CashManager : Singleton<CashManager>
     {
         if (GameManager.Instance.DifficultyModifier > 1)
         {
-            ChangeCash(amountWrong * (GameManager.Instance.DifficultyModifier * 10));
+            ChangeCash(-(amountWrong * (GameManager.Instance.DifficultyModifier * 10)));
         }
     }
 

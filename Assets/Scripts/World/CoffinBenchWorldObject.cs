@@ -57,6 +57,8 @@ public class CoffinBenchWorldObject : InteractableMono
         newCoffin.AddComponent<DestroyIn>();
         newCoffin.AddComponent<MoveInDirection>().Direction = new Vector3(0, 0, 1);
 
+        FindObjectOfType<Shutter>().PlayAnimation();
+
         //We destroy the placed parts and readd the child object.
         ResetTemplate();
     }

@@ -26,6 +26,11 @@ public class DebugManager : MonoBehaviour
         {
             NegativeRosebud();
         }
+
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.E))
+        {
+            IncrementDay();
+        }
     }
 
     public void BuildCurrentCoffin()
@@ -41,5 +46,10 @@ public class DebugManager : MonoBehaviour
     public void NegativeRosebud()
     {
         CashManager.Instance.ChangeCash(-1000);
+    }
+
+    public void IncrementDay()
+    {
+        GameManager.Instance.IncrementDay();
     }
 }

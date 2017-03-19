@@ -29,13 +29,15 @@ public class UIReviews : MonoBehaviour
     public void ShowReview(string review)
     {
         txtReview.text = review;
+        imgTwitterPanel.gameObject.SetActive(true);
 
         StartCoroutine(HideReview());
     }
 
     IEnumerator HideReview()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(15);
+        imgTwitterPanel.gameObject.SetActive(false);
         txtReview.text = "";
     }
 }
