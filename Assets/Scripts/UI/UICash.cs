@@ -12,7 +12,7 @@ public class UICash : MonoBehaviour
     {
         //Set values
         ParentCanvas = gameObject.GetComponent<Canvas>();
-        txtCash = ParentCanvas.transform.FindChild("txtCash").GetComponent<Text>();
+        txtCash = ParentCanvas.transform.Find("txtCash").GetComponent<Text>();
 
         //Subscribe to events.
         CashManager.Instance.OnCashChanged.AddListener(UpdateCash);

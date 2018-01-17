@@ -13,8 +13,8 @@ public class UIPlayerText : MonoBehaviour
     {
         //Set values
         ParentCanvas = gameObject.GetComponent<Canvas>();
-        txtPlayer = ParentCanvas.transform.FindChild("txtPlayer").GetComponent<Text>();
-        txtCarrying = ParentCanvas.transform.FindChild("txtCarrying").GetComponent<Text>();
+        txtPlayer = ParentCanvas.transform.Find("txtPlayer").GetComponent<Text>();
+        txtCarrying = ParentCanvas.transform.Find("txtCarrying").GetComponent<Text>();
 
         //Subscribe to events.
         HoverTextManager.Instance.OnTextChange.AddListener(UpdateHoverText);

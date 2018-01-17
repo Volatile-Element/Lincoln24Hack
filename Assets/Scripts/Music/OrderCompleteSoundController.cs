@@ -13,9 +13,9 @@ public class OrderCompleteSoundController : MonoBehaviour
 
     private void Awake()
     {
-        Shutter = transform.FindChild("Shutter").GetComponent<AudioSource>();
-        Car = transform.FindChild("Car").GetComponent<AudioSource>();
-        Response = transform.FindChild("Response").GetComponent<AudioSource>();
+        Shutter = transform.Find("Shutter").GetComponent<AudioSource>();
+        Car = transform.Find("Car").GetComponent<AudioSource>();
+        Response = transform.Find("Response").GetComponent<AudioSource>();
 
         Success = Resources.Load<AudioClip>("Sounds/Orders/Success");
         Failure = Resources.Load<AudioClip>("Sounds/Orders/Failure");

@@ -12,8 +12,8 @@ public class UIReviews : MonoBehaviour
     private void Awake()
     {
         ParentCanvas = gameObject.GetComponent<Canvas>();
-        imgTwitterPanel = ParentCanvas.transform.FindChild("imgTwitterPanel").GetComponent<Image>();
-        txtReview = imgTwitterPanel.transform.FindChild("txtReview").GetComponent<Text>();
+        imgTwitterPanel = ParentCanvas.transform.Find("imgTwitterPanel").GetComponent<Image>();
+        txtReview = imgTwitterPanel.transform.Find("txtReview").GetComponent<Text>();
     }
 
     // Use this for initialization

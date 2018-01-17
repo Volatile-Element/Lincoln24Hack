@@ -32,9 +32,9 @@ public class CoffinBenchWorldObject : InteractableMono
     {
         var carriedItem = GameManager.Instance.PlayerOne.CarryingPartObject;
 
-        Vector3 positionToSpawn = BuildingCoffin.transform.FindChild(carriedItem.PartType.ToString()).position;
+        Vector3 positionToSpawn = BuildingCoffin.transform.Find(carriedItem.PartType.ToString()).position;
 
-        var instanCoffinPart = CoffinManager.Instance.InstantiateCoffinPart(carriedItem.Resource, positionToSpawn, Quaternion.identity, BuildingCoffin.transform.FindChild("Parts"));
+        var instanCoffinPart = CoffinManager.Instance.InstantiateCoffinPart(carriedItem.Resource, positionToSpawn, Quaternion.identity, BuildingCoffin.transform.Find("Parts"));
         OrderManager.Instance.CurrentOrder.AddPlacedItem(carriedItem);
         GameManager.Instance.PlayerOne.StopCarryingItem();
         GetComponent<PieceBuiltSound>().PlayRandomSound();
@@ -65,7 +65,7 @@ public class CoffinBenchWorldObject : InteractableMono
 
     public void ResetTemplate()
     {
-        Destroy(BuildingCoffin.transform.FindChild("Parts").gameObject);
+        Destroy(BuildingCoffin.transform.Find("Parts").gameObject);
         var parts = new GameObject("Parts");
         parts.transform.parent = BuildingCoffin.transform;
     }

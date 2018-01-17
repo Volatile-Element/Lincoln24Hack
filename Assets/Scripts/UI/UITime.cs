@@ -13,8 +13,8 @@ public class UITime : MonoBehaviour
     {
         //Set values
         ParentCanvas = gameObject.GetComponent<Canvas>();
-        txtTime = ParentCanvas.transform.FindChild("txtTime").GetComponent<Text>();
-        txtDay = ParentCanvas.transform.FindChild("txtDay").GetComponent<Text>();
+        txtTime = ParentCanvas.transform.Find("txtTime").GetComponent<Text>();
+        txtDay = ParentCanvas.transform.Find("txtDay").GetComponent<Text>();
 
         //Subscribe to events.
         GameManager.Instance.OnTimeChange.AddListener(OnTimeChange);

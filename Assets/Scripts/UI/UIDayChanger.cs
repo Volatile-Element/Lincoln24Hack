@@ -13,8 +13,8 @@ public class UIDayChanger : MonoBehaviour
     {
         //Set values
         ParentCanvas = gameObject.GetComponent<Canvas>();
-        txtPopuptext = ParentCanvas.transform.FindChild("txtPopupText").GetComponent<Text>();
-        imgBlackout = ParentCanvas.transform.FindChild("imgBlackout").GetComponent<Image>();
+        txtPopuptext = ParentCanvas.transform.Find("txtPopupText").GetComponent<Text>();
+        imgBlackout = ParentCanvas.transform.Find("imgBlackout").GetComponent<Image>();
 
         //Subscribe to events.
         GameManager.Instance.OnStateChange.AddListener(UpdateOnStateChange);
